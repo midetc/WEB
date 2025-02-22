@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Практична робота №1</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Веб калькулятори для розрахунку
+      складу сухої та горючої маси палива та нижчої теплоти згоряння
+      для робочої, сухої та горючої маси за заданим складом компонентів
+      
+      палива.</h1>
+
+    <div class="wrapper">
+      <div class="calc-container">
+        <h2>Завдання №1 (Тверде паливо)</h2>
+        <p>
+          Калькулятор для розрахунку складу робочої, сухої та горючої маси, а
+          також нижчої теплоти згоряння (формула Менделєєва).
+        </p>
+        <form id="fuelForm1">
+          <div>
+            <label>H<sub>P</sub> (водень, %):</label>
+            <input
+              type="number"
+              step="any"
+              id="hp1"
+              value="1.9"
+              title="H<sub>P</sub> (водень, %)"
+              placeholder="H<sub>P</sub> (водень, %)"
+            />
+          </div>
+          <div>
+            <label>C<sub>P</sub> (вуглець, %):</label>
+            <input
+              type="number"
+              step="any"
+              id="cp1"
+              value="21.1"
+              title="C<sub>P</sub> (вуглець, %)"
+              placeholder="C<sub>P</sub> (вуглець, %)"
+            />
+          </div>
+          <div>
+            <label>S<sub>P</sub> (сірка, %):</label>
+            <input
+              type="number"
+              step="any"
+              id="sp1"
+              value="2.6"
+              title="S<sub>P</sub> (сірка, %)"
+            />
+          </div>
+          <div>
+            <label>N<sub>P</sub> (азот, %):</label>
+            <input
+              type="number"
+              step="any"
+              id="np1"
+              value="0.2"
+              title="N<sub>P</sub> (азот, %)"
+            />
+          </div>
+          <div>
+            <label>O<sub>P</sub> (кисень, %):</label>
+            <input
+              type="number"
+              step="any"
+              id="op1"
+              value="7.1"
+              title="O<sub>P</sub> (кисень, %)"
+            />
+          </div>
+          <div>
+            <label>W<sub>P</sub> (волога, %):</label>
+            <input
+              type="number"
+              step="any"
+              id="wp1"
+              value="53"
+              title="W<sub>P</sub> (волога, %)"
+            />
+          </div>
+          <div>
+            <label>A<sub>P</sub> (зола, %):</label>
+            <input
+              type="number"
+              step="any"
+              id="ap1"
+              value="14.1"
+              title="A<sub>P</sub> (зола, %)"
+              placeholder="A<sub>P</sub> (зола, %)"
+            />
+          </div>
+          <div class="full-span">
+            <button type="button" onclick="calculateTask1()">Обчислити</button>
+          </div>
+        </form>
+        <div id="result1" class="result"></div>
+      </div>
+
+      <div class="calc-container">
+        <h2>Завдання №2 (Мазут)</h2>
+        <p>
+          Калькулятор для перерахунку елементарного складу з горючої маси мазуту
+          на робочу масу та обчислення нижчої теплоти згоряння Q<sub>r</sub>.
+        </p>
+        <form id="fuelForm2">
+          <div>
+            <label>C<sub>G</sub> (вуглець, %):</label>
+            <input
+              type="number"
+              step="any"
+              id="cG"
+              value="85.5"
+              title="C<sub>G</sub> (вуглець, %)"
+              placeholder="C<sub>G</sub> (вуглець, %)"
+            />
+          </div>
+          <div>
+            <label>H<sub>G</sub> (водень, %):</label>
+            <input
+              type="number"
+              step="any"
+              id="hG"
+              value="11.2"
+              title="H<sub>G</sub> (водень, %)"
+              placeholder="H<sub>G</sub> (водень, %)"
+            />
+          </div>
+          <div>
+            <label>O<sub>G</sub> (кисень, %):</label>
+            <input
+              type="number"
+              step="any"
+              id="oG"
+              value="0.8"
+              title="O<sub>G</sub> (кисень, %)"
+              placeholder="O<sub>G</sub> (кисень, %)"
+            />
+          </div>
+          <div>
+            <label>S<sub>G</sub> (сірка, %):</label>
+            <input
+              type="number"
+              step="any"
+              id="sG"
+              value="2.5"
+              title="S<sub>G</sub> (сірка, %)"
+              placeholder="S<sub>G</sub> (сірка, %)"
+            />
+          </div>
+          <div>
+            <label>Q<sub>daf</sub> (горюча маса, МДж/кг):</label>
+            <input
+              type="number"
+              step="any"
+              id="qDaf"
+              value="40.4"
+              title="Q<sub>daf</sub> (горюча маса, МДж/кг)"
+              placeholder="Q<sub>daf</sub> (горюча маса, МДж/кг)"
+            />
+          </div>
+          <div>
+            <label>W<sub>r</sub> (волога, %):</label>
+            <input
+              type="number"
+              step="any"
+              id="wR"
+              value="2.0"
+              title="W<sub>r</sub> (волога, %)"
+              placeholder="W<sub>r</sub> (волога, %)"
+            />
+          </div>
+          <div>
+            <label>A<sub>d</sub> (зольність сухої маси, %):</label>
+            <input
+              type="number"
+              step="any"
+              id="aD"
+              value="0.15"
+              title="A<sub>d</sub> (зольність сухої маси, %)"
+              placeholder="A<sub>d</sub> (зольність сухої маси, %)"
+            />
+          </div>
+          <div>
+            <label>V<sub>g</sub> (ванадій, мг/кг):</label>
+            <input
+              type="number"
+              step="any"
+              id="vG"
+              value="333.3"
+              title="V<sub>g</sub> (ванадій, мг/кг)"
+              placeholder="V<sub>g</sub> (ванадій, мг/кг)"
+            />
+          </div>
+          <div class="full-span">
+            <button type="button" onclick="calculateTask2()">Обчислити</button>
+          </div>
+        </form>
+        <div id="result2" class="result"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
