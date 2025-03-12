@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Практична №2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Калькулятор валових викидів (ТЧ)</h1>
+
+    <!-- Поля для введення початкових даних -->
+    <fieldset>
+      <legend>Вхідні дані з прикладу</legend>
+
+      <!-- Блок для вугілля -->
+      <label for="coalMass">Витрата вугілля (т)</label>
+      <input type="number" id="coalMass" value="1096363">
+
+      <!-- Блок для мазуту -->
+      <label for="mazutMass">Витрата мазуту (т)</label>
+      <input type="number" id="mazutMass" value="70945">
+
+      <!-- Блок для газу -->
+      <label for="gasVolume">Витрата газу (тис. м³)</label>
+      <input type="number" id="gasVolume" value="84762">
+
+      <!-- Теплоти згоряння -->
+      <label for="coalQr">Qr вугілля (МДж/кг)</label>
+      <input type="number" id="coalQr" step="0.01" value="20.47">
+
+      <label for="mazutQr">Qr мазуту (МДж/кг)</label>
+      <input type="number" id="mazutQr" step="0.01" value="40.4">
+
+      <label for="gasQr">Qr газу (МДж/м³)</label>
+      <input type="number" id="gasQr" step="0.01" value="33.08">
+
+      <!-- Показники емісії (з контрольного прикладу) -->
+      <label for="kCoal">k<sub>тв</sub> вугілля (г/ГДж)</label>
+      <input type="number" id="kCoal" step="0.01" value="150">
+
+      <label for="kMazut">k<sub>тв</sub> мазуту (г/ГДж)</label>
+      <input type="number" id="kMazut" step="0.01" value="0.57">
+
+      <label for="kGas">k<sub>тв</sub> газу (г/ГДж)</label>
+      <input type="number" id="kGas" step="0.01" value="0">
+
+      <button type="button" onclick="calculate()">Розрахувати</button>
+    </fieldset>
+
+    <!-- Блок для результатів -->
+    <div id="results">
+      <p><em>Натисніть «Розрахувати», щоб побачити результати.</em></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
